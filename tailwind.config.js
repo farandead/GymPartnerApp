@@ -4,7 +4,13 @@ module.exports = {
 
   presets: [require('nativewind/preset')],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'pump-black': '#1B2021',
+        'pump-orange': '#FF8600',
+        'pump-white': '#FFFFFF',
+      },
+    },
   },
   plugins: [],
 };
