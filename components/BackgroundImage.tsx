@@ -19,7 +19,8 @@ export const BackgroundImage: React.FC<BackgroundImageProps> = ({
   const [isLoading, setIsLoading] = useState(true);
   
   // Try to use provided image, fall back to a solid color if not available
-  const source = imageSource || { uri: undefined };
+  const fallbackSource = { uri: 'https://via.placeholder.com/150' }; // Default fallback image
+  const source = imageSource || fallbackSource;
 
   return (
     <View className="flex-1 bg-pump-black">
