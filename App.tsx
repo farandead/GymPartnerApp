@@ -1,6 +1,6 @@
-import { WelcomeScreen } from 'components/WelcomeScreen';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { WelcomeScreen } from '~/index';
 
 import './global.css';
 
