@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Text, View } from 'react-native';
+import { PhoneNumberScreen, WelcomeScreen } from '~/features/auth/screens';
 
 // Placeholder for actual screen components
 const PlaceholderScreen = ({ route }: { route: any }) => (
@@ -23,8 +24,8 @@ const AuthNavigator = () => (
       headerShown: false,
     }}
   >
-    <AuthStack.Screen name="Welcome" component={PlaceholderScreen} />
-    <AuthStack.Screen name="PhoneLogin" component={PlaceholderScreen} />
+    <AuthStack.Screen name="Welcome" component={WelcomeScreen} />
+    <AuthStack.Screen name="PhoneLogin" component={PhoneNumberScreen} />
     <AuthStack.Screen name="OtpVerification" component={PlaceholderScreen} />
     <AuthStack.Screen name="ProfileSetup" component={PlaceholderScreen} />
   </AuthStack.Navigator>
