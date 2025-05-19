@@ -2,7 +2,17 @@ export type AuthStackParamList = {
   Welcome: undefined;
   PhoneLogin: undefined;
   OtpVerification: { phoneNumber: string };
-  ProfileSetup: undefined;
+  LocationPermission: undefined;
+  NotificationPermission: undefined;
+  PrivacyConsent: undefined;
+  PrivacyPreferences: undefined;
+  TrackingConsent: undefined;  ProfileSetup: undefined;
+  GenderSelection: { firstName: string };
+  GenderVisibility: { gender: string };
+  Email: undefined;
+  GymMode: undefined;
+  PreferredPartners: { mode: string };
+  WorkoutGoals: { preferences: { openToAll: boolean; selectedPartners: string[] } };
 };
 
 export type MainTabParamList = {
