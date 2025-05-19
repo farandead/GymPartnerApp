@@ -18,7 +18,12 @@ import {
 } from '~/features/auth/screens';
 import { LocationPermissionScreen } from '~/features/location/screens';
 import { NotificationPermissionScreen } from '~/features/notifications/screens';
-import { ProfileScreen } from '~/features/profile/screens';
+import {
+  GenderSelectionScreen,
+  GenderVisibilityScreen,
+  ProfileScreen,
+  ProfileSetupScreen
+} from '~/features/profile/screens';
 
 // Placeholder for actual screen components
 const PlaceholderScreen = ({ route }: { route: any }) => (
@@ -46,8 +51,10 @@ const AuthNavigator = () => (
     <AuthStack.Screen name="LocationPermission" component={LocationPermissionScreen} />
     <AuthStack.Screen name="NotificationPermission" component={NotificationPermissionScreen} />
     <AuthStack.Screen name="PrivacyConsent" component={PrivacyConsentScreen} />
-    <AuthStack.Screen name="PrivacyPreferences" component={PrivacyPreferencesScreen} />
-    <AuthStack.Screen name="TrackingConsent" component={TrackingConsentScreen} />
+    <AuthStack.Screen name="PrivacyPreferences" component={PrivacyPreferencesScreen} />    <AuthStack.Screen name="TrackingConsent" component={TrackingConsentScreen} />
+    <AuthStack.Screen name="ProfileSetup" component={ProfileSetupScreen} />
+    <AuthStack.Screen name="GenderSelection" component={GenderSelectionScreen} />
+    <AuthStack.Screen name="GenderVisibility" component={GenderVisibilityScreen} />
     <AuthStack.Screen name="Email" component={EmailScreen} />
     <AuthStack.Screen name="GymMode" component={GymModeScreen} />
     <AuthStack.Screen name="PreferredPartners" component={PreferredPartnersScreen} />
