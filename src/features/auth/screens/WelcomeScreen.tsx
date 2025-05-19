@@ -1,13 +1,19 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BackgroundImage } from '~/components';
 
 export const WelcomeScreen: React.FC = () => {
+  const navigation = useNavigation();
   // Sample background image - replace with your own when ready
   const bgImage = require('~/assets/images/sample-bg.jpg');
   // If you want to use your own image, update the path:
   // const bgImage = require('~/assets/images/your-gym-image.jpg');
+  
+  const handleMobileNumberPress = () => {
+    navigation.navigate('PhoneLogin');
+  };
   
   return (
     <BackgroundImage imageSource={bgImage} overlayOpacity={0.65}>
@@ -34,7 +40,10 @@ export const WelcomeScreen: React.FC = () => {
               <Text className="text-pump-white font-semibold text-base">Continue with Facebook</Text>
             </TouchableOpacity>
             
-            <TouchableOpacity className="bg-pump-white rounded-full py-4 items-center mb-6">
+            <TouchableOpacity 
+              className="bg-pump-white rounded-full py-4 items-center mb-6"
+              onPress={handleMobileNumberPress}
+            >
               <Text className="text-pump-black font-semibold text-base">Use mobile number</Text>
             </TouchableOpacity>
             
