@@ -70,7 +70,7 @@ export const WorkoutGoalsScreen: React.FC = () => {
       );
       console.log('Selected goals:', selectedGoalsList);
       // Will implement in next PR
-      // navigation.navigate('NextScreen', { goals: selectedGoalsList });
+      navigation.navigate('HeightSelection');
     }
   };
 
