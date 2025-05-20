@@ -1,35 +1,65 @@
-export interface Profile {
-  id: string;
+export interface UserProfile {
+  id?: string;
   name: string;
   bio: string;
-  photos: ProfilePhoto[];
+  age: number;
+  location: string;
+  photos: PhotoType[];
   workoutPreferences: WorkoutPreferences;
-  personalityAnswers: PersonalityAnswers;
-  completionPercentage: number;
+  socialLinks?: SocialLinks;
+  stats?: WorkoutStats;
+  availability?: string[];
 }
 
-export interface ProfilePhoto {
+export interface PhotoType {
   id: string;
   url: string;
-  isGymPhoto: boolean;
-  isVerified: boolean;
+  type: 'profile' | 'gym' | 'action';
+  isMain: boolean;
 }
 
 export interface WorkoutPreferences {
-  style: 'solo' | 'partner' | 'group';
-  frequency: number;
-  preferredTimes: string[];
+  experience: 'Beginner' | 'Intermediate' | 'Advanced';
+  frequency: string;
+  preferredTime: string[];
+  style: 'Solo' | 'Partner' | 'Group';
   goals: string[];
-  experienceLevel: 'beginner' | 'intermediate' | 'advanced';
 }
 
-export interface PersonalityAnswers {
-  workoutStyle: string;
-  fitnessGoals: string[];
-  schedule: {
-    frequency: number;
-    preferredTimes: string[];
-  };
-  activities: string[];
-  experience: string;
+export interface SocialLinks {
+  instagram?: string;
+  strava?: string;
 }
+
+export interface WorkoutStats {
+  workoutsCompleted: number;
+  partneredSessions: number;
+  favoriteGym?: string;
+  streak: number;
+  rating?: number;
+}
+
+export const defaultProfile: UserProfile = {
+  name: '',
+  bio: '',
+  age: 0,
+  location: '',
+  photos: [],
+  workoutPreferences: {
+    experience: 'Beginner',
+    frequency: '1-2 times/week',
+    preferredTime: ['Evening'],
+    style: 'Solo',
+    goals: [],
+  },
+  socialLinks: {
+    instagram: '',
+    strava: '',
+  },
+  stats: {
+    workoutsCompleted: 0,
+    partneredSessions: 0,
+    streak: 0,
+    rating: 0,
+  },
+};

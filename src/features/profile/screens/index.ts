@@ -1,5 +1,3 @@
-export * from './GenderSelectionScreen';
-export * from './GenderVisibilityScreen';
+export * from './EditProfileScreen';
 export * from './ProfileScreen';
-export * from './ProfileSetupScreen';
 

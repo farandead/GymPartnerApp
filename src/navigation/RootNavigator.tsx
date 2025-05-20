@@ -19,11 +19,13 @@ import {
 import { LocationPermissionScreen } from '~/features/location/screens';
 import { NotificationPermissionScreen } from '~/features/notifications/screens';
 import {
+  EditProfileScreen,
   GenderSelectionScreen,
   GenderVisibilityScreen,
   ProfileScreen,
   ProfileSetupScreen
 } from '~/features/profile/screens';
+import { ProfileStackParamList } from '~/types/navigation';
 
 // Placeholder for actual screen components
 const PlaceholderScreen = ({ route }: { route: any }) => (
@@ -47,11 +49,11 @@ const AuthNavigator = () => (
   >
     <AuthStack.Screen name="Welcome" component={WelcomeScreen} />
     <AuthStack.Screen name="PhoneLogin" component={PhoneNumberScreen} />
-    <AuthStack.Screen name="OtpVerification" component={OtpVerificationScreen} />
-    <AuthStack.Screen name="LocationPermission" component={LocationPermissionScreen} />
+    <AuthStack.Screen name="OtpVerification" component={OtpVerificationScreen} />    <AuthStack.Screen name="LocationPermission" component={LocationPermissionScreen} />
     <AuthStack.Screen name="NotificationPermission" component={NotificationPermissionScreen} />
     <AuthStack.Screen name="PrivacyConsent" component={PrivacyConsentScreen} />
-    <AuthStack.Screen name="PrivacyPreferences" component={PrivacyPreferencesScreen} />    <AuthStack.Screen name="TrackingConsent" component={TrackingConsentScreen} />
+    <AuthStack.Screen name="PrivacyPreferences" component={PrivacyPreferencesScreen} />
+    <AuthStack.Screen name="TrackingConsent" component={TrackingConsentScreen} />
     <AuthStack.Screen name="ProfileSetup" component={ProfileSetupScreen} />
     <AuthStack.Screen name="GenderSelection" component={GenderSelectionScreen} />
     <AuthStack.Screen name="GenderVisibility" component={GenderVisibilityScreen} />
@@ -91,7 +93,7 @@ const NearbyNavigator = () => (
 );
 
 // Profile Stack
-const ProfileStack = createStackNavigator();
+const ProfileStack = createStackNavigator<ProfileStackParamList>();
 const ProfileNavigator = () => (
   <ProfileStack.Navigator
     screenOptions={{
@@ -101,8 +103,7 @@ const ProfileNavigator = () => (
       headerTintColor: '#FFFFFF',
       headerTitleStyle: {
         fontWeight: 'bold',
-      },
-    }}
+      },    }}
   >
     <ProfileStack.Screen 
       name="MyProfile" 
@@ -113,9 +114,9 @@ const ProfileNavigator = () => (
     />
     <ProfileStack.Screen 
       name="EditProfile" 
-      component={PlaceholderScreen}
+      component={EditProfileScreen}
       options={{
-        title: 'Edit Profile',
+        headerShown: false,
       }}
     />
     <ProfileStack.Screen 
@@ -153,7 +154,7 @@ const ProfileNavigator = () => (
 const MainTab = createBottomTabNavigator();
 const MainNavigator = () => (
   <MainTab.Navigator
-    screenOptions={({ route }) => ({
+    screenOptions={({ route }: { route: any }) => ({
       tabBarStyle: {
         backgroundColor: '#1B2021',
         borderTopWidth: 0,
@@ -162,7 +163,7 @@ const MainNavigator = () => (
       },
       tabBarActiveTintColor: '#FF8600',
       tabBarInactiveTintColor: '#FFFFFF',
-      tabBarIcon: ({ focused, color, size }) => {
+      tabBarIcon: ({ focused, color, size }: { focused: boolean; color: string; size: number }) => {
         let iconName;
         switch (route.name) {
           case 'Home':
