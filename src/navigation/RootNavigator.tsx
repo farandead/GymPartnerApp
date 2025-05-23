@@ -4,19 +4,25 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Text, View } from 'react-native';
 import {
   EmailScreen,
+  GenderSelectionScreen,
+  GenderVisibilityScreen,
   GymModeScreen,
+  HeightSelectionScreen,
+  InterestsSelectionScreen,
   OtpVerificationScreen,
+  PersonalQuestionsScreen,
   PhoneNumberScreen,
+  PhotosScreen,
   PreferredPartnersScreen,
   PrivacyConsentScreen,
   PrivacyPreferencesScreen,
   TrackingConsentScreen,
   WelcomeScreen,
-  WorkoutGoalsScreen
+  WorkoutGoalsScreen,
 } from '~/features/auth/screens';
 import { LocationPermissionScreen } from '~/features/location/screens';
 import { NotificationPermissionScreen } from '~/features/notifications/screens';
-import { GenderSelectionScreen, GenderVisibilityScreen, ProfileSetupScreen } from '~/features/profile/screens';
+import { ProfileSetupScreen } from '~/features/profile/screens';
 
 // Placeholder for actual screen components
 const PlaceholderScreen = ({ route }: { route: any }) => (
@@ -53,6 +59,10 @@ const AuthNavigator = () => (
     <AuthStack.Screen name="GymMode" component={GymModeScreen} />
     <AuthStack.Screen name="PreferredPartners" component={PreferredPartnersScreen} />
     <AuthStack.Screen name="WorkoutGoals" component={WorkoutGoalsScreen} />
+    <AuthStack.Screen name="HeightSelection" component={HeightSelectionScreen} />
+    <AuthStack.Screen name="Photos" component={PhotosScreen} />
+    <AuthStack.Screen name="PersonalQuestions" component={PersonalQuestionsScreen} />
+    <AuthStack.Screen name="InterestsSelection" component={InterestsSelectionScreen} />
   </AuthStack.Navigator>
 );
 

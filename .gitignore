@@ -13,7 +13,7 @@ android/build/
 ios/Pods/
 ios/build/
 ios/DerivedData/
-
+coverage/
 # Xcode
 *.xcworkspace
 *.xcuserdata
