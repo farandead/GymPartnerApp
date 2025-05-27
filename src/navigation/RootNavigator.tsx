@@ -1,7 +1,8 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { BottomTabNavigationProp, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { CompositeNavigationProp, NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
+import { Text, TouchableOpacity, View } from 'react-native';
 import {
   EmailScreen,
   GenderSelectionScreen,
@@ -21,8 +22,14 @@ import {
   WorkoutGoalsScreen,
 } from '~/features/auth/screens';
 import { LocationPermissionScreen } from '~/features/location/screens';
+import {
+  ChatScreen,
+  ConversationsScreen,
+  MessageSettingsScreen
+} from '~/features/messaging/screens';
 import { NotificationPermissionScreen } from '~/features/notifications/screens';
 import { ProfileSetupScreen } from '~/features/profile/screens';
+import { MainTabParamList, MessagingStackParamList } from '../types/navigation';
 
 // Placeholder for actual screen components
 const PlaceholderScreen = ({ route }: { route: any }) => (
@@ -77,11 +84,64 @@ const HomeNavigator = () => (
 );
 
 // Messaging Stack
-const MessagingStack = createStackNavigator();
+const MessagingStack = createStackNavigator<MessagingStackParamList>();
+
+type MessagingScreenNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<MessagingStackParamList>,
+  BottomTabNavigationProp<MainTabParamList>
+>;
+
 const MessagingNavigator = () => (
-  <MessagingStack.Navigator>
-    <MessagingStack.Screen name="Conversations" component={PlaceholderScreen} />
-    <MessagingStack.Screen name="Chat" component={PlaceholderScreen} />
+  <MessagingStack.Navigator
+    screenOptions={{
+      headerShown: true, // Show header for messaging screens
+      headerStyle: {
+        backgroundColor: '#1B2021',
+        elevation: 0, // Android
+        shadowOpacity: 0, // iOS
+      },
+      headerTintColor: '#FF8600',
+      headerTitleStyle: {
+        fontWeight: '600',
+        fontSize: 18,
+      },
+      headerTitleAlign: 'center',
+    }}
+  >
+    <MessagingStack.Screen 
+      name="Conversations" 
+      component={ConversationsScreen}
+      options={({ navigation }) => ({
+        title: 'Messages',
+        headerRight: () => (
+          <TouchableOpacity 
+            className="mr-4"
+            onPress={() => {
+              navigation.navigate('MessageSettings', { 
+                conversationId: 'settings' 
+              });
+            }}
+          >
+            <Ionicons name="settings-outline" size={24} color="#FFFFFF" />
+          </TouchableOpacity>
+        ),
+      })}
+    />
+    <MessagingStack.Screen 
+      name="Chat" 
+      component={ChatScreen}
+      options={({ route }) => ({
+        headerShown: false,
+        title: route.params?.name,
+      })}
+    />
+    <MessagingStack.Screen 
+      name="MessageSettings" 
+      component={MessageSettingsScreen}
+      options={{
+        title: 'Settings',
+      }}
+    />
   </MessagingStack.Navigator>
 );
 
@@ -97,33 +157,249 @@ const NearbyNavigator = () => (
 // Profile Stack
 const ProfileStack = createStackNavigator();
 const ProfileNavigator = () => (
-  <ProfileStack.Navigator>
-    <ProfileStack.Screen name="MyProfile" component={PlaceholderScreen} />
-    <ProfileStack.Screen name="EditProfile" component={PlaceholderScreen} />
-    <ProfileStack.Screen name="Settings" component={PlaceholderScreen} />
-    <ProfileStack.Screen name="AccountSettings" component={PlaceholderScreen} />
-    <ProfileStack.Screen name="NotificationSettings" component={PlaceholderScreen} />
-    <ProfileStack.Screen name="PrivacySettings" component={PlaceholderScreen} />
+  <ProfileStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#1B2021',
+        elevation: 0,
+        shadowOpacity: 0,
+      },
+      headerTintColor: '#FF8600',
+      headerTitleStyle: {
+        fontWeight: '600',
+        fontSize: 18,
+      },
+      headerTitleAlign: 'center',
+    }}
+  >
+    <ProfileStack.Screen 
+      name="MyProfile" 
+      component={PlaceholderScreen}
+      options={{
+        title: 'Profile'
+      }}
+    />
+    <ProfileStack.Screen 
+      name="EditProfile" 
+      component={PlaceholderScreen}
+      options={{
+        title: 'Edit Profile',
+      }}
+    />
+    {/* ...other profile screens... */}
   </ProfileStack.Navigator>
+);
+
+// Requests Stack
+const RequestsStack = createStackNavigator();
+const RequestsNavigator = () => (
+  <RequestsStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#1B2021',
+        elevation: 0,
+        shadowOpacity: 0,
+      },
+      headerTintColor: '#FF8600',
+      headerTitleStyle: {
+        fontWeight: '600',
+        fontSize: 18,
+      },
+      headerTitleAlign: 'center',
+    }}
+  >
+    <RequestsStack.Screen 
+      name="RequestsList" 
+      component={PlaceholderScreen}
+      options={{
+        title: 'Partner Requests',
+      }}
+    />
+    <RequestsStack.Screen 
+      name="RequestDetails" 
+      component={PlaceholderScreen} 
+    />
+  </RequestsStack.Navigator>
+);
+
+// Discovery Stack
+const DiscoveryStack = createStackNavigator();
+const DiscoveryNavigator = () => (
+  <DiscoveryStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#1B2021',
+        elevation: 0,
+        shadowOpacity: 0,
+      },
+      headerTintColor: '#FF8600',
+      headerTitleStyle: {
+        fontWeight: '600',
+        fontSize: 18,
+      },
+      headerTitleAlign: 'center',
+    }}
+  >
+    <DiscoveryStack.Screen 
+      name="DiscoverPeople" 
+      component={PlaceholderScreen}
+      options={{
+        title: 'Discover Partners',
+      }}
+    />
+    <DiscoveryStack.Screen 
+      name="UserProfile" 
+      component={PlaceholderScreen}
+      options={{
+        title: 'Profile',
+      }}
+    />
+    <DiscoveryStack.Screen 
+      name="FilterSettings" 
+      component={PlaceholderScreen}
+      options={{
+        title: 'Filters',
+      }}
+    />
+  </DiscoveryStack.Navigator>
+);
+
+// Settings Stack
+const SettingsStack = createStackNavigator();
+const SettingsNavigator = () => (
+  <SettingsStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#1B2021',
+        elevation: 0,
+        shadowOpacity: 0,
+      },
+      headerTintColor: '#FF8600',
+      headerTitleStyle: {
+        fontWeight: '600',
+        fontSize: 18,
+      },
+      headerTitleAlign: 'center',
+    }}
+  >
+    <SettingsStack.Screen 
+      name="SettingsList" 
+      component={PlaceholderScreen}
+      options={{
+        title: 'Settings',
+      }}
+    />
+    <SettingsStack.Screen 
+      name="AppSettings" 
+      component={PlaceholderScreen} 
+    />
+    <SettingsStack.Screen 
+      name="Privacy" 
+      component={PlaceholderScreen} 
+    />
+    <SettingsStack.Screen 
+      name="Notifications" 
+      component={PlaceholderScreen} 
+    />
+    <SettingsStack.Screen 
+      name="Help" 
+      component={PlaceholderScreen} 
+    />
+  </SettingsStack.Navigator>
 );
 
 // Main Tab Navigator
 const MainTab = createBottomTabNavigator();
 const MainNavigator = () => (
   <MainTab.Navigator
-    screenOptions={{
+    screenOptions={({ route }) => ({
+      headerShown: false,
       tabBarStyle: {
         backgroundColor: '#1B2021',
         borderTopWidth: 0,
+        height: 80, // Increased height to prevent cutting
+        paddingTop: 10,
+        paddingBottom: 20,
       },
       tabBarActiveTintColor: '#FF8600',
       tabBarInactiveTintColor: '#FFFFFF',
-    }}
+      tabBarLabel: ({ focused, color }) => (
+        <Text 
+          className={`text-xs ${focused ? 'font-semibold' : 'font-normal'} mb-1`}
+          style={{ color }}
+        >
+          {route.name}
+        </Text>
+      ),
+    })}
   >
-    <MainTab.Screen name="Home" component={HomeNavigator} />
-    <MainTab.Screen name="Messages" component={MessagingNavigator} />
-    <MainTab.Screen name="Nearby" component={NearbyNavigator} />
-    <MainTab.Screen name="Profile" component={ProfileNavigator} />
+    <MainTab.Screen 
+      name="Messages" 
+      component={MessagingNavigator} 
+      options={{
+        tabBarIcon: ({ focused, color, size }) => (
+          <Ionicons 
+            name={focused ? 'chatbubbles' : 'chatbubbles-outline'} 
+            size={size} 
+            color={color} 
+          />
+        ),
+      }}
+    />
+    <MainTab.Screen 
+      name="Requests" 
+      component={RequestsNavigator}
+      options={{
+        tabBarIcon: ({ focused, color, size }) => (
+          <Ionicons 
+            name={focused ? 'people' : 'people-outline'} 
+            size={size} 
+            color={color} 
+          />
+        ),
+      }}
+    />
+    <MainTab.Screen 
+      name="Discovery" 
+      component={DiscoveryNavigator}
+      options={{
+        tabBarIcon: ({ focused }) => (
+          <View className="bg-pump-orange rounded-full w-14 h-14 items-center justify-center -mt-6">
+            <Ionicons 
+              name={focused ? 'compass' : 'compass-outline'} 
+              size={28} 
+              color="#FFFFFF" 
+            />
+          </View>
+        ),
+      }}
+    />
+    <MainTab.Screen 
+      name="Profile" 
+      component={ProfileNavigator}
+      options={{
+        tabBarIcon: ({ focused, color, size }) => (
+          <Ionicons 
+            name={focused ? 'person' : 'person-outline'} 
+            size={size} 
+            color={color} 
+          />
+        ),
+      }}
+    />
+    <MainTab.Screen 
+      name="Settings" 
+      component={SettingsNavigator}
+      options={{
+        tabBarIcon: ({ focused, color, size }) => (
+          <Ionicons 
+            name={focused ? 'settings' : 'settings-outline'} 
+            size={size} 
+            color={color} 
+          />
+        ),
+      }}
+    />
   </MainTab.Navigator>
 );
 
@@ -131,7 +407,7 @@ const MainNavigator = () => (
 const RootStack = createStackNavigator();
 export const RootNavigator = () => {
   // Mock authentication state
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   return (
     <NavigationContainer>
