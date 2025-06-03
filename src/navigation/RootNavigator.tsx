@@ -21,8 +21,10 @@ import {
   WorkoutGoalsScreen,
 } from '~/features/auth/screens';
 import { LocationPermissionScreen } from '~/features/location/screens';
+import { DiscoverScreen } from '~/features/matching/screens';
 import { NotificationPermissionScreen } from '~/features/notifications/screens';
 import { ProfileSetupScreen } from '~/features/profile/screens';
+import { BottomTabBar } from '../components/BottomTabBar';
 
 // Placeholder for actual screen components
 const PlaceholderScreen = ({ route }: { route: any }) => (
@@ -69,8 +71,12 @@ const AuthNavigator = () => (
 // Home Stack (Discover/Matching)
 const HomeStack = createStackNavigator();
 const HomeNavigator = () => (
-  <HomeStack.Navigator>
-    <HomeStack.Screen name="Discover" component={PlaceholderScreen} />
+  <HomeStack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}
+  >
+    <HomeStack.Screen name="Discover" component={DiscoverScreen} />
     <HomeStack.Screen name="MatchDetails" component={PlaceholderScreen} />
     <HomeStack.Screen name="LikesYou" component={PlaceholderScreen} />
   </HomeStack.Navigator>
@@ -111,27 +117,46 @@ const ProfileNavigator = () => (
 const MainTab = createBottomTabNavigator();
 const MainNavigator = () => (
   <MainTab.Navigator
+    tabBar={(props) => <BottomTabBar {...props} />}
     screenOptions={{
-      tabBarStyle: {
-        backgroundColor: '#1B2021',
-        borderTopWidth: 0,
-      },
-      tabBarActiveTintColor: '#FF8600',
-      tabBarInactiveTintColor: '#FFFFFF',
+      headerShown: false,
     }}
   >
-    <MainTab.Screen name="Home" component={HomeNavigator} />
-    <MainTab.Screen name="Messages" component={MessagingNavigator} />
-    <MainTab.Screen name="Nearby" component={NearbyNavigator} />
-    <MainTab.Screen name="Profile" component={ProfileNavigator} />
+    <MainTab.Screen 
+      name="Profile" 
+      component={ProfileNavigator}
+      options={{
+        title: 'Profile'
+      }}
+    />
+    <MainTab.Screen 
+      name="Discover" 
+      component={HomeNavigator}
+      options={{
+        title: 'Discover'
+      }}
+    />
+    <MainTab.Screen 
+      name="People" 
+      component={NearbyNavigator}
+      options={{
+        title: 'People'
+      }}
+    />
+    <MainTab.Screen 
+      name="Messages" 
+      component={MessagingNavigator}
+      options={{
+        title: 'Chats'
+      }}
+    />
   </MainTab.Navigator>
 );
 
 // Root Navigator
 const RootStack = createStackNavigator();
-export const RootNavigator = () => {
-  // Mock authentication state
-  const isAuthenticated = false;
+export const RootNavigator = () => {  // Mock authentication state
+  const isAuthenticated = true;
 
   return (
     <NavigationContainer>
