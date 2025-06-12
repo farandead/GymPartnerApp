@@ -22,11 +22,11 @@ import {
   WorkoutGoalsScreen,
 } from '~/features/auth/screens';
 import { LocationPermissionScreen } from '~/features/location/screens';
-import {
-  ChatScreen,
-  ConversationsScreen,
-  MessageSettingsScreen
-} from '~/features/messaging/screens';
+// import {
+//   ChatScreen,
+//   ConversationsScreen,
+//   MessageSettingsScreen
+// } from '~/features/messaging/screens';
 import { NotificationPermissionScreen } from '~/features/notifications/screens';
 import { ProfileSetupScreen } from '~/features/profile/screens';
 import { MainTabParamList, MessagingStackParamList } from '../types/navigation';
@@ -110,7 +110,8 @@ const MessagingNavigator = () => (
   >
     <MessagingStack.Screen 
       name="Conversations" 
-      component={ConversationsScreen}
+      // component={ConversationsScreen}
+      component={PlaceholderScreen}
       options={({ navigation }) => ({
         title: 'Messages',
         headerRight: () => (
@@ -129,7 +130,8 @@ const MessagingNavigator = () => (
     />
     <MessagingStack.Screen 
       name="Chat" 
-      component={ChatScreen}
+      // component={ChatScreen}
+      component={PlaceholderScreen}
       options={({ route }) => ({
         headerShown: false,
         title: route.params?.name,
@@ -137,7 +139,8 @@ const MessagingNavigator = () => (
     />
     <MessagingStack.Screen 
       name="MessageSettings" 
-      component={MessageSettingsScreen}
+      // component={MessageSettingsScreen}
+      component={PlaceholderScreen}
       options={{
         title: 'Settings',
       }}
@@ -317,7 +320,7 @@ const MainNavigator = () => (
       tabBarStyle: {
         backgroundColor: '#1B2021',
         borderTopWidth: 0,
-        height: 80, // Increased height to prevent cutting
+        height: 80, 
         paddingTop: 10,
         paddingBottom: 20,
       },
