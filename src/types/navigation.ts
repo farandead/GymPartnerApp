@@ -21,10 +21,11 @@ export type AuthStackParamList = {
 };
 
 export type MainTabParamList = {
-  Home: undefined;
   Messages: undefined;
-  Nearby: undefined;
+  Requests: undefined;
+  Discovery: undefined;
   Profile: undefined;
+  Settings: undefined;
 };
 
 export type HomeStackParamList = {
@@ -35,12 +36,14 @@ export type HomeStackParamList = {
 
 export type MessagingStackParamList = {
   Conversations: undefined;
-  Chat: { matchId: string };
-};
-
-export type NearbyStackParamList = {
-  Map: undefined;
-  GymDetails: { id: string };
+  Chat: { 
+    conversationId: string;
+    name: string;
+    avatar?: string; // Add avatar for header display
+  };
+  MessageSettings: { 
+    conversationId: string;
+  };
 };
 
 export type ProfileStackParamList = {
@@ -50,6 +53,18 @@ export type ProfileStackParamList = {
   AccountSettings: undefined;
   NotificationSettings: undefined;
   PrivacySettings: undefined;
+  Preferences: undefined; // Add preferences screen
+};
+
+export type DiscoveryStackParamList = {
+  DiscoverPeople: undefined;
+  UserProfile: { userId: string };
+  FilterSettings: undefined;
+};
+
+export type RequestsStackParamList = {
+  RequestsList: undefined;
+  RequestDetails: { requestId: string };
 };
 
 declare global {

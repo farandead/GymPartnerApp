@@ -1,6 +1,6 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { BottomTabNavigationProp, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { CompositeNavigationProp, NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
 import { Text, View } from 'react-native';
 import {
   EmailScreen,
@@ -23,7 +23,6 @@ import {
 import { LocationPermissionScreen } from '~/features/location/screens';
 import { DiscoverScreen } from '~/features/matching/screens';
 import { NotificationPermissionScreen } from '~/features/notifications/screens';
-import { ProfileSetupScreen } from '~/features/profile/screens';
 import { BottomTabBar } from '../components/BottomTabBar';
 
 // Placeholder for actual screen components
@@ -54,7 +53,6 @@ const AuthNavigator = () => (
     <AuthStack.Screen name="PrivacyConsent" component={PrivacyConsentScreen} />
     <AuthStack.Screen name="PrivacyPreferences" component={PrivacyPreferencesScreen} />
     <AuthStack.Screen name="TrackingConsent" component={TrackingConsentScreen} />
-    <AuthStack.Screen name="ProfileSetup" component={ProfileSetupScreen} />
     <AuthStack.Screen name="GenderSelection" component={GenderSelectionScreen} />
     <AuthStack.Screen name="GenderVisibility" component={GenderVisibilityScreen} />
     <AuthStack.Screen name="Email" component={EmailScreen} />
@@ -83,7 +81,13 @@ const HomeNavigator = () => (
 );
 
 // Messaging Stack
-const MessagingStack = createStackNavigator();
+const MessagingStack = createStackNavigator<MessagingStackParamList>();
+
+type MessagingScreenNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<MessagingStackParamList>,
+  BottomTabNavigationProp<MainTabParamList>
+>;
+
 const MessagingNavigator = () => (
   <MessagingStack.Navigator>
     <MessagingStack.Screen name="Conversations" component={PlaceholderScreen} />
@@ -91,13 +95,27 @@ const MessagingNavigator = () => (
   </MessagingStack.Navigator>
 );
 
-// Nearby Stack
-const NearbyStack = createStackNavigator();
-const NearbyNavigator = () => (
-  <NearbyStack.Navigator>
-    <NearbyStack.Screen name="Map" component={PlaceholderScreen} />
-    <NearbyStack.Screen name="GymDetails" component={PlaceholderScreen} />
-  </NearbyStack.Navigator>
+// People/Nearby Stack
+const PeopleStack = createStackNavigator();
+const PeopleNavigator = () => (
+  <PeopleStack.Navigator
+    screenOptions={defaultHeaderStyle}
+  >
+    <PeopleStack.Screen 
+      name="Map" 
+      component={PlaceholderScreen}
+      options={{
+        title: 'Nearby People',
+      }}
+    />
+    <PeopleStack.Screen 
+      name="GymDetails" 
+      component={PlaceholderScreen}
+      options={{
+        title: 'Gym Details',
+      }}
+    />
+  </PeopleStack.Navigator>
 );
 
 // Profile Stack
