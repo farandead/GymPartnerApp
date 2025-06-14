@@ -64,7 +64,7 @@ export type SettingsStackParamList = {
 };
 
 export type DiscoveryStackParamList = {
-  DiscoverPeople: undefined;
+  Discover: undefined;
   UserProfile: { userId: string };
   FilterSettings: undefined;
 };
