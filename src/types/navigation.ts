@@ -46,25 +46,27 @@ export type MessagingStackParamList = {
   };
 };
 
+export type RequestsStackParamList = {
+  RequestsList: undefined;
+  RequestDetails: { requestId: string };
+};
+
 export type ProfileStackParamList = {
   MyProfile: undefined;
   EditProfile: undefined;
-  Settings: undefined;
+};
+
+export type SettingsStackParamList = {
+  SettingsList: undefined;
   AccountSettings: undefined;
   NotificationSettings: undefined;
   PrivacySettings: undefined;
-  Preferences: undefined; // Add preferences screen
 };
 
 export type DiscoveryStackParamList = {
   DiscoverPeople: undefined;
   UserProfile: { userId: string };
   FilterSettings: undefined;
-};
-
-export type RequestsStackParamList = {
-  RequestsList: undefined;
-  RequestDetails: { requestId: string };
 };
 
 declare global {
