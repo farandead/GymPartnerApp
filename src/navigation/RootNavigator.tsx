@@ -30,6 +30,7 @@ import { DiscoverScreen } from '~/features/matching/screens';
 //   MessageSettingsScreen
 // } from '~/features/messaging/screens';
 
+import { BottomTabBar } from '~/components/BottomTabBar';
 import { NotificationPermissionScreen } from '~/features/notifications/screens';
 import { ProfileSetupScreen } from '~/features/profile/screens';
 import {
@@ -318,92 +319,44 @@ const MainNavigator = () => {
   try {
     return (
       <MainTab.Navigator
-        screenOptions={({ route }) => ({
+        tabBar={props => <BottomTabBar {...props} />}
+        screenOptions={{
           headerShown: false,
-          tabBarStyle: {
-            backgroundColor: '#1B2021',
-            borderTopWidth: 0,
-            height: 80, 
-            paddingTop: 10,
-            paddingBottom: 20,
-          },
-          tabBarActiveTintColor: '#FF8600',
-          tabBarInactiveTintColor: '#FFFFFF',
-          tabBarLabel: ({ focused, color }) => (
-            <Text 
-              className={`text-xs ${focused ? 'font-semibold' : 'font-normal'} mb-1`}
-              style={{ color }}
-            >
-              {route.name}
-            </Text>
-          ),
-        })}
+        }}
       >
         <MainTab.Screen 
           name="Messages" 
           component={MessagingNavigator} 
           options={{
-            tabBarIcon: ({ focused, color, size }) => (
-              <Ionicons 
-                name={focused ? 'chatbubbles' : 'chatbubbles-outline'} 
-                size={size} 
-                color={color} 
-              />
-            ),
+            title: 'Messages'
           }}
         />
         <MainTab.Screen 
           name="Requests" 
           component={RequestsNavigator}
           options={{
-            tabBarIcon: ({ focused, color, size }) => (
-              <Ionicons 
-                name={focused ? 'people' : 'people-outline'} 
-                size={size} 
-                color={color} 
-              />
-            ),
+            title: 'Requests'
           }}
         />
         <MainTab.Screen 
           name="Discovery" 
           component={DiscoveryNavigator}
           options={{
-            tabBarIcon: ({ focused }) => (
-              <View className="bg-pump-orange rounded-full w-14 h-14 items-center justify-center -mt-6">
-                <Ionicons 
-                  name={focused ? 'compass' : 'compass-outline'} 
-                  size={28} 
-                  color="#FFFFFF" 
-                />
-              </View>
-            ),
+            title: 'Discover'
           }}
         />
         <MainTab.Screen 
           name="Profile" 
           component={ProfileNavigator}
           options={{
-            tabBarIcon: ({ focused, color, size }) => (
-              <Ionicons 
-                name={focused ? 'person' : 'person-outline'} 
-                size={size} 
-                color={color} 
-              />
-            ),
+            title: 'Profile'
           }}
         />
         <MainTab.Screen 
           name="Settings" 
           component={SettingsNavigator}
           options={{
-            tabBarIcon: ({ focused, color, size }) => (
-              <Ionicons 
-                name={focused ? 'settings' : 'settings-outline'} 
-                size={size} 
-                color={color} 
-              />
-            ),
+            title: 'Settings'
           }}
         />
       </MainTab.Navigator>
