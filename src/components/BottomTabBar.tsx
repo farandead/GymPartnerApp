@@ -1,29 +1,28 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Feather';
 
 export const BottomTabBar: React.FC<BottomTabBarProps> = ({
   state,
   descriptors,
   navigation,
-}) => {
-  return (
-    <View className="flex-row h-16 items-center justify-around bg-pump-black border-t border-pump-white/10">
-      {state.routes.map((route, index) => {
+}) => {  return (
+    <SafeAreaView edges={['bottom']} className="bg-pump-black border-t border-pump-white/10">
+      <View className="flex-row h-16 items-center justify-around">
+        {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label = options.tabBarLabel ?? options.title ?? route.name;
-        const isFocused = state.index === index;
-
-        // Map route names to icon names
+        const isFocused = state.index === index;        // Map route names to icon names
         const getIconName = () => {
           switch (route.name) {
             case 'Profile':
               return 'user';
             case 'Discover':
               return 'compass';
-            case 'People':
-              return 'users';
+            case 'Likes':
+              return 'heart';
             case 'Messages':
               return 'message-circle';
             default:
@@ -63,10 +62,10 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({
               }`}
             >
               {label}
-            </Text>
-          </TouchableOpacity>
+            </Text>          </TouchableOpacity>
         );
       })}
-    </View>
+      </View>
+    </SafeAreaView>
   );
 };

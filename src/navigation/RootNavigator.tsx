@@ -21,9 +21,11 @@ import {
   WorkoutGoalsScreen,
 } from '~/features/auth/screens';
 import { LocationPermissionScreen } from '~/features/location/screens';
-import { DiscoverScreen } from '~/features/matching/screens';
+import { DiscoverScreen, LikedScreen } from '~/features/matching/screens';
+import { ChatScreen } from '~/features/messaging/screens/ChatScreen';
+import { MessagingScreen } from '~/features/messaging/screens/MessagingScreen';
 import { NotificationPermissionScreen } from '~/features/notifications/screens';
-import { ProfileSetupScreen } from '~/features/profile/screens';
+import { ProfileScreen, ProfileSetupScreen } from '~/features/profile/screens';
 import { BottomTabBar } from '../components/BottomTabBar';
 
 // Placeholder for actual screen components
@@ -85,9 +87,13 @@ const HomeNavigator = () => (
 // Messaging Stack
 const MessagingStack = createStackNavigator();
 const MessagingNavigator = () => (
-  <MessagingStack.Navigator>
-    <MessagingStack.Screen name="Conversations" component={PlaceholderScreen} />
-    <MessagingStack.Screen name="Chat" component={PlaceholderScreen} />
+  <MessagingStack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}
+  >
+    <MessagingStack.Screen name="Conversations" component={MessagingScreen} />
+    <MessagingStack.Screen name="Chat" component={ChatScreen} />
   </MessagingStack.Navigator>
 );
 
@@ -103,8 +109,12 @@ const NearbyNavigator = () => (
 // Profile Stack
 const ProfileStack = createStackNavigator();
 const ProfileNavigator = () => (
-  <ProfileStack.Navigator>
-    <ProfileStack.Screen name="MyProfile" component={PlaceholderScreen} />
+  <ProfileStack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}
+  >
+    <ProfileStack.Screen name="MyProfile" component={ProfileScreen} />
     <ProfileStack.Screen name="EditProfile" component={PlaceholderScreen} />
     <ProfileStack.Screen name="Settings" component={PlaceholderScreen} />
     <ProfileStack.Screen name="AccountSettings" component={PlaceholderScreen} />
@@ -120,6 +130,7 @@ const MainNavigator = () => (
     tabBar={(props) => <BottomTabBar {...props} />}
     screenOptions={{
       headerShown: false,
+      tabBarHideOnKeyboard: true,
     }}
   >
     <MainTab.Screen 
@@ -137,10 +148,10 @@ const MainNavigator = () => (
       }}
     />
     <MainTab.Screen 
-      name="People" 
-      component={NearbyNavigator}
+      name="Likes" 
+      component={LikedScreen}
       options={{
-        title: 'People'
+        title: 'Liked You'
       }}
     />
     <MainTab.Screen 
