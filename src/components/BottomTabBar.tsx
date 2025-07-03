@@ -55,14 +55,14 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({
               name={getIconName()}
               size={24}
               color={isFocused ? '#FF8600' : '#FFFFFF'}
-            />
-            <Text
+            />            <Text
               className={`text-xs mt-1 ${
                 isFocused ? 'text-pump-orange' : 'text-pump-white'
               }`}
             >
-              {label}
-            </Text>          </TouchableOpacity>
+              {typeof label === 'string' ? label : route.name}
+            </Text>
+          </TouchableOpacity>
         );
       })}
       </View>

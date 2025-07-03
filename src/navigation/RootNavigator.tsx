@@ -25,7 +25,7 @@ import { DiscoverScreen, LikedScreen } from '~/features/matching/screens';
 import { ChatScreen } from '~/features/messaging/screens/ChatScreen';
 import { MessagingScreen } from '~/features/messaging/screens/MessagingScreen';
 import { NotificationPermissionScreen } from '~/features/notifications/screens';
-import { ProfileScreen, ProfileSetupScreen } from '~/features/profile/screens';
+import { ProfileScreen, ProfileSetupScreen, SettingsScreen } from '~/features/profile/screens';
 import { BottomTabBar } from '../components/BottomTabBar';
 
 // Placeholder for actual screen components
@@ -116,7 +116,7 @@ const ProfileNavigator = () => (
   >
     <ProfileStack.Screen name="MyProfile" component={ProfileScreen} />
     <ProfileStack.Screen name="EditProfile" component={PlaceholderScreen} />
-    <ProfileStack.Screen name="Settings" component={PlaceholderScreen} />
+    <ProfileStack.Screen name="Settings" component={SettingsScreen} />
     <ProfileStack.Screen name="AccountSettings" component={PlaceholderScreen} />
     <ProfileStack.Screen name="NotificationSettings" component={PlaceholderScreen} />
     <ProfileStack.Screen name="PrivacySettings" component={PlaceholderScreen} />
@@ -157,7 +157,7 @@ const MainNavigator = () => (
     <MainTab.Screen 
       name="Messages" 
       component={MessagingNavigator}
-      options={{
+      options={{ 
         title: 'Chats'
       }}
     />
@@ -166,7 +166,8 @@ const MainNavigator = () => (
 
 // Root Navigator
 const RootStack = createStackNavigator();
-export const RootNavigator = () => {  // Mock authentication state
+export const RootNavigator = () => {
+  // Mock authentication state
   const isAuthenticated = true;
 
   return (
