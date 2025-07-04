@@ -261,9 +261,15 @@ export const ProfileScreen: React.FC = () => {
         <TouchableOpacity onPress={() => Alert.alert('Add Interest', 'Feature coming soon!')}>
           <Icon name="plus" size={20} color="#FF6B35" />
         </TouchableOpacity>
+<<<<<<< HEAD
       </View>      
       <View className="flex-row flex-wrap gap-2 mb-4">
         {user.interests.map((interest, index) => (
+=======
+      </View>
+      
+      <View className="flex-row flex-wrap gap-2 mb-4">        {user.interests.map((interest, index) => (
+>>>>>>> dev
           <TouchableOpacity 
             key={index} 
             className="flex-row items-center bg-pump-orange/20 border border-pump-orange rounded-full px-3 py-2"
@@ -279,10 +285,17 @@ export const ProfileScreen: React.FC = () => {
       </View>
       
       <Text className="text-pump-white/70 text-sm mb-3">Suggested for you:</Text>
+<<<<<<< HEAD
       <View className="flex-row flex-wrap gap-2">        {availableInterests
           .filter(interest => !user.interests.some(userInterest => userInterest.label === interest.label))
           .slice(0, 6)
           .map((interest, index) => (
+=======
+      <View className="flex-row flex-wrap gap-2">
+        {availableInterests
+          .filter(interest => !user.interests.some(userInterest => userInterest.label === interest.label))
+          .slice(0, 6)          .map((interest, index) => (
+>>>>>>> dev
             <TouchableOpacity 
               key={index} 
               className="flex-row items-center bg-pump-white/10 rounded-full px-3 py-2"
@@ -323,12 +336,20 @@ export const ProfileScreen: React.FC = () => {
   );
 
   return (
+<<<<<<< HEAD
     <SafeAreaView edges={['top']} className="flex-1 bg-pump-black">      {/* Header */}
       <View className="px-5 py-4 border-b border-pump-white/10">
         <Text className="text-pump-white text-xl font-semibold">Profile</Text>
       </View>
       
       <ScrollView
+=======
+    <SafeAreaView edges={['top']} className="flex-1 bg-pump-black">
+      {/* Header */}
+      <View className="px-5 py-4 border-b border-pump-white/10">
+        <Text className="text-pump-white text-xl font-semibold">Profile</Text>
+      </View>      <ScrollView 
+>>>>>>> dev
         className="flex-1"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 20 }}
