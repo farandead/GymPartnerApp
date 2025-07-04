@@ -1,11 +1,17 @@
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useState } from 'react';
 import { Alert, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Feather';
 import QRCodeIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { PhotoGrid, PhotoItem } from '../../../components/PhotoGrid';
+import { ProfileStackParamList } from '../../../types/navigation';
+
+type ProfileScreenNavigationProp = StackNavigationProp<ProfileStackParamList, 'MyProfile'>;
 
 export const ProfileScreen: React.FC = () => {
+  const navigation = useNavigation<ProfileScreenNavigationProp>();
   const [bestPhotoIndex, setBestPhotoIndex] = useState(0);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
   const [profilePhotos, setProfilePhotos] = useState<PhotoItem[]>([
@@ -85,14 +91,19 @@ export const ProfileScreen: React.FC = () => {
         </View>
 
         {/* Action Buttons */}
-        <View className="flex-row space-x-3">
-          {/* QR Code Button */}
+        <View className="flex-row space-x-3">          {/* QR Code Button */}
           <TouchableOpacity className="w-12 h-12 bg-pump-white/10 rounded-full items-center justify-center">
             <QRCodeIcon name="qrcode" size={20} color="#FFFFFF" />
           </TouchableOpacity>
           
           {/* Settings Button */}
-          <TouchableOpacity className="w-12 h-12 bg-pump-white/10 rounded-full items-center justify-center">
+          <TouchableOpacity 
+            className="w-12 h-12 bg-pump-white/10 rounded-full items-center justify-center"
+            onPress={() => {
+              console.log('Settings button pressed');
+              navigation.navigate('Settings');
+            }}
+          >
             <Icon name="settings" size={20} color="#FFFFFF" />
           </TouchableOpacity>
         </View>
@@ -250,9 +261,15 @@ export const ProfileScreen: React.FC = () => {
         <TouchableOpacity onPress={() => Alert.alert('Add Interest', 'Feature coming soon!')}>
           <Icon name="plus" size={20} color="#FF6B35" />
         </TouchableOpacity>
+<<<<<<< HEAD
+      </View>      
+      <View className="flex-row flex-wrap gap-2 mb-4">
+        {user.interests.map((interest, index) => (
+=======
       </View>
       
       <View className="flex-row flex-wrap gap-2 mb-4">        {user.interests.map((interest, index) => (
+>>>>>>> dev
           <TouchableOpacity 
             key={index} 
             className="flex-row items-center bg-pump-orange/20 border border-pump-orange rounded-full px-3 py-2"
@@ -268,10 +285,17 @@ export const ProfileScreen: React.FC = () => {
       </View>
       
       <Text className="text-pump-white/70 text-sm mb-3">Suggested for you:</Text>
+<<<<<<< HEAD
+      <View className="flex-row flex-wrap gap-2">        {availableInterests
+          .filter(interest => !user.interests.some(userInterest => userInterest.label === interest.label))
+          .slice(0, 6)
+          .map((interest, index) => (
+=======
       <View className="flex-row flex-wrap gap-2">
         {availableInterests
           .filter(interest => !user.interests.some(userInterest => userInterest.label === interest.label))
           .slice(0, 6)          .map((interest, index) => (
+>>>>>>> dev
             <TouchableOpacity 
               key={index} 
               className="flex-row items-center bg-pump-white/10 rounded-full px-3 py-2"
@@ -312,11 +336,20 @@ export const ProfileScreen: React.FC = () => {
   );
 
   return (
+<<<<<<< HEAD
+    <SafeAreaView edges={['top']} className="flex-1 bg-pump-black">      {/* Header */}
+      <View className="px-5 py-4 border-b border-pump-white/10">
+        <Text className="text-pump-white text-xl font-semibold">Profile</Text>
+      </View>
+      
+      <ScrollView
+=======
     <SafeAreaView edges={['top']} className="flex-1 bg-pump-black">
       {/* Header */}
       <View className="px-5 py-4 border-b border-pump-white/10">
         <Text className="text-pump-white text-xl font-semibold">Profile</Text>
       </View>      <ScrollView 
+>>>>>>> dev
         className="flex-1"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 20 }}

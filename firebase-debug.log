@@ -1,0 +1,354 @@
+[debug] [2025-07-04T21:26:59.761Z] ----------------------------------------------------------------------
+[debug] [2025-07-04T21:26:59.763Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-07-04T21:26:59.763Z] CLI Version:   14.9.0
+[debug] [2025-07-04T21:26:59.764Z] Platform:      win32
+[debug] [2025-07-04T21:26:59.764Z] Node Version:  v22.15.1
+[debug] [2025-07-04T21:26:59.764Z] Time:          Fri Jul 04 2025 22:26:59 GMT+0100 (British Summer Time)
+[debug] [2025-07-04T21:26:59.764Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-04T21:26:59.912Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-04T21:26:59.913Z] > authorizing via signed-in user (faranzafarcs@gmail.com)
+[debug] [2025-07-04T21:26:59.913Z] [iam] checking project gympartner-a30f8 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-07-04T21:26:59.913Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:26:59.914Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:26:59.914Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions [none]
+[debug] [2025-07-04T21:26:59.914Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions x-goog-quota-user=projects/gympartner-a30f8
+[debug] [2025-07-04T21:26:59.914Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-04T21:27:00.566Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions 200
+[debug] [2025-07-04T21:27:00.567Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-04T21:27:00.567Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:00.567Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:00.567Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-07-04T21:27:00.567Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-07-04T21:27:00.812Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2025-07-04T21:27:00.812Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2025-07-04T21:27:00.813Z] [functions] service account IAM check errored, deploy may fail: Request to https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account","status":404}
+[info] 
+[info] === Deploying to 'gympartner-a30f8'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-07-04T21:27:00.815Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:00.815Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:00.815Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 [none]
+[debug] [2025-07-04T21:27:00.994Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 200
+[debug] [2025-07-04T21:27:00.994Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 {"projectNumber":"459078683085","projectId":"gympartner-a30f8","lifecycleState":"ACTIVE","name":"GymPartner","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-07-03T22:52:04.481576Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2025-07-04T21:27:00.995Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:00.995Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:00.995Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:00.995Z] Checked if tokens are valid: true, expires at: 1751667246895
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2025-07-04T21:27:00.995Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:00.995Z] Checked if tokens are valid: true, expires at: 1751667246895
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-07-04T21:27:00.995Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:00.996Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:00.996Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudfunctions.googleapis.com [none]
+[debug] [2025-07-04T21:27:00.996Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/gympartner-a30f8
+[debug] [2025-07-04T21:27:00.996Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/runtimeconfig.googleapis.com [none]
+[debug] [2025-07-04T21:27:00.997Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/gympartner-a30f8
+[debug] [2025-07-04T21:27:00.997Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudbuild.googleapis.com [none]
+[debug] [2025-07-04T21:27:00.997Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudbuild.googleapis.com x-goog-quota-user=projects/gympartner-a30f8
+[debug] [2025-07-04T21:27:00.998Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/artifactregistry.googleapis.com [none]
+[debug] [2025-07-04T21:27:00.998Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/artifactregistry.googleapis.com x-goog-quota-user=projects/gympartner-a30f8
+[debug] [2025-07-04T21:27:01.777Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudfunctions.googleapis.com 200
+[debug] [2025-07-04T21:27:01.777Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2025-07-04T21:27:01.780Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudbuild.googleapis.com 200
+[debug] [2025-07-04T21:27:01.780Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudbuild.googleapis.com [omitted]
+[warn] !  functions: missing required API cloudbuild.googleapis.com. Enabling now... 
+[debug] [2025-07-04T21:27:01.780Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:01.780Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:01.780Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudbuild.googleapis.com:enable [none]
+[debug] [2025-07-04T21:27:01.780Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudbuild.googleapis.com:enable x-goog-quota-user=projects/gympartner-a30f8
+[debug] [2025-07-04T21:27:01.781Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/runtimeconfig.googleapis.com 200
+[debug] [2025-07-04T21:27:01.781Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2025-07-04T21:27:01.804Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/artifactregistry.googleapis.com 200
+[debug] [2025-07-04T21:27:01.805Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/artifactregistry.googleapis.com [omitted]
+[warn] !  artifactregistry: missing required API artifactregistry.googleapis.com. Enabling now... 
+[debug] [2025-07-04T21:27:01.805Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:01.805Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:01.805Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/artifactregistry.googleapis.com:enable [none]
+[debug] [2025-07-04T21:27:01.805Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/artifactregistry.googleapis.com:enable x-goog-quota-user=projects/gympartner-a30f8
+[debug] [2025-07-04T21:27:02.536Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/artifactregistry.googleapis.com:enable 200
+[debug] [2025-07-04T21:27:02.536Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/artifactregistry.googleapis.com:enable [omitted]
+[debug] [2025-07-04T21:27:03.436Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudbuild.googleapis.com:enable 200
+[debug] [2025-07-04T21:27:03.436Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/gympartner-a30f8/services/cloudbuild.googleapis.com:enable [omitted]
+[debug] [2025-07-04T21:27:13.452Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:13.452Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:13.452Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig [none]
+[debug] [2025-07-04T21:27:13.738Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig 200
+[debug] [2025-07-04T21:27:13.738Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig {"projectId":"gympartner-a30f8","storageBucket":"gympartner-a30f8.firebasestorage.app"}
+[debug] [2025-07-04T21:27:13.738Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:13.739Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:27:13.739Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs [none]
+[debug] [2025-07-04T21:27:13.988Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs 200
+[debug] [2025-07-04T21:27:13.988Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs {}
+[debug] [2025-07-04T21:27:13.989Z] Customer code is not Node
+[debug] [2025-07-04T21:27:13.989Z] Validating python source
+[debug] [2025-07-04T21:27:13.989Z] Building python source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-07-04T21:27:13.990Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-04T21:27:13.995Z] Running command with virtualenv: command="D:\Projects\pumpcult\GymPartnerApp\functions\venv\Scripts\activate.bat", args=["","&&","python.exe","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2025-07-04T21:27:14.004Z] stderr: The system cannot find the path specified.
+
+[debug] [2025-07-04T21:27:14.019Z] Error: spawn "D:\Projects\pumpcult\GymPartnerApp\functions\venv\Scripts\activate.bat" ENOENT
+    at notFoundError (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-07-04T21:28:52.439Z] ----------------------------------------------------------------------
+[debug] [2025-07-04T21:28:52.441Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-07-04T21:28:52.442Z] CLI Version:   14.9.0
+[debug] [2025-07-04T21:28:52.442Z] Platform:      win32
+[debug] [2025-07-04T21:28:52.442Z] Node Version:  v22.15.1
+[debug] [2025-07-04T21:28:52.442Z] Time:          Fri Jul 04 2025 22:28:52 GMT+0100 (British Summer Time)
+[debug] [2025-07-04T21:28:52.442Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-04T21:28:52.589Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-04T21:28:52.589Z] > authorizing via signed-in user (faranzafarcs@gmail.com)
+[debug] [2025-07-04T21:28:52.589Z] [iam] checking project gympartner-a30f8 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-07-04T21:28:52.590Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:28:52.590Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:28:52.591Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions [none]
+[debug] [2025-07-04T21:28:52.591Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions x-goog-quota-user=projects/gympartner-a30f8
+[debug] [2025-07-04T21:28:52.591Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-04T21:28:53.210Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions 200
+[debug] [2025-07-04T21:28:53.210Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-04T21:28:53.210Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:28:53.210Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:28:53.210Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-07-04T21:28:53.210Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-07-04T21:28:53.438Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2025-07-04T21:28:53.438Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2025-07-04T21:28:53.438Z] [functions] service account IAM check errored, deploy may fail: Request to https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account","status":404}
+[info] 
+[info] === Deploying to 'gympartner-a30f8'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-07-04T21:28:53.440Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:28:53.441Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:28:53.441Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 [none]
+[debug] [2025-07-04T21:28:53.612Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 200
+[debug] [2025-07-04T21:28:53.612Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 {"projectNumber":"459078683085","projectId":"gympartner-a30f8","lifecycleState":"ACTIVE","name":"GymPartner","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-07-03T22:52:04.481576Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-07-04T21:28:53.614Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:28:53.614Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:28:53.614Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig [none]
+[debug] [2025-07-04T21:28:53.851Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig 200
+[debug] [2025-07-04T21:28:53.851Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig {"projectId":"gympartner-a30f8","storageBucket":"gympartner-a30f8.firebasestorage.app"}
+[debug] [2025-07-04T21:28:53.852Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:28:53.852Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:28:53.852Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs [none]
+[debug] [2025-07-04T21:28:54.093Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs 200
+[debug] [2025-07-04T21:28:54.093Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs {}
+[debug] [2025-07-04T21:28:54.093Z] Customer code is not Node
+[debug] [2025-07-04T21:28:54.094Z] Validating python source
+[debug] [2025-07-04T21:28:54.094Z] Building python source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-07-04T21:28:54.094Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-04T21:28:54.099Z] Running command with virtualenv: command="D:\Projects\pumpcult\GymPartnerApp\functions\venv\Scripts\activate.bat", args=["","&&","python.exe","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2025-07-04T21:28:54.108Z] stderr: The system cannot find the path specified.
+
+[debug] [2025-07-04T21:28:54.154Z] Error: spawn "D:\Projects\pumpcult\GymPartnerApp\functions\venv\Scripts\activate.bat" ENOENT
+    at notFoundError (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-07-04T21:30:57.833Z] ----------------------------------------------------------------------
+[debug] [2025-07-04T21:30:57.835Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-07-04T21:30:57.835Z] CLI Version:   14.9.0
+[debug] [2025-07-04T21:30:57.835Z] Platform:      win32
+[debug] [2025-07-04T21:30:57.835Z] Node Version:  v22.15.1
+[debug] [2025-07-04T21:30:57.835Z] Time:          Fri Jul 04 2025 22:30:57 GMT+0100 (British Summer Time)
+[debug] [2025-07-04T21:30:57.836Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-04T21:30:57.985Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-04T21:30:57.985Z] > authorizing via signed-in user (faranzafarcs@gmail.com)
+[debug] [2025-07-04T21:30:57.985Z] [iam] checking project gympartner-a30f8 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-07-04T21:30:57.986Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:30:57.986Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:30:57.987Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions [none]
+[debug] [2025-07-04T21:30:57.987Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions x-goog-quota-user=projects/gympartner-a30f8
+[debug] [2025-07-04T21:30:57.987Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-04T21:30:58.682Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions 200
+[debug] [2025-07-04T21:30:58.683Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-04T21:30:58.683Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:30:58.683Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:30:58.683Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-07-04T21:30:58.683Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-07-04T21:30:59.329Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2025-07-04T21:30:59.329Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2025-07-04T21:30:59.329Z] [functions] service account IAM check errored, deploy may fail: Request to https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account","status":404}
+[info] 
+[info] === Deploying to 'gympartner-a30f8'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-07-04T21:30:59.332Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:30:59.332Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:30:59.332Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 [none]
+[debug] [2025-07-04T21:30:59.497Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 200
+[debug] [2025-07-04T21:30:59.497Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 {"projectNumber":"459078683085","projectId":"gympartner-a30f8","lifecycleState":"ACTIVE","name":"GymPartner","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-07-03T22:52:04.481576Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-07-04T21:30:59.499Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:30:59.499Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:30:59.499Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig [none]
+[debug] [2025-07-04T21:30:59.759Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig 200
+[debug] [2025-07-04T21:30:59.759Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig {"projectId":"gympartner-a30f8","storageBucket":"gympartner-a30f8.firebasestorage.app"}
+[debug] [2025-07-04T21:30:59.759Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:30:59.759Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:30:59.759Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs [none]
+[debug] [2025-07-04T21:31:00.094Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs 200
+[debug] [2025-07-04T21:31:00.094Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs {}
+[debug] [2025-07-04T21:31:00.095Z] Customer code is not Node
+[debug] [2025-07-04T21:31:00.095Z] Validating python source
+[debug] [2025-07-04T21:31:00.095Z] Building python source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-07-04T21:31:00.096Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-04T21:31:00.101Z] Running command with virtualenv: command="D:\Projects\pumpcult\GymPartnerApp\functions\venv\Scripts\activate.bat", args=["","&&","python.exe","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2025-07-04T21:31:00.109Z] stderr: The system cannot find the path specified.
+
+[debug] [2025-07-04T21:31:00.171Z] Error: spawn "D:\Projects\pumpcult\GymPartnerApp\functions\venv\Scripts\activate.bat" ENOENT
+    at notFoundError (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-07-04T21:32:06.914Z] ----------------------------------------------------------------------
+[debug] [2025-07-04T21:32:06.916Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-07-04T21:32:06.916Z] CLI Version:   14.9.0
+[debug] [2025-07-04T21:32:06.916Z] Platform:      win32
+[debug] [2025-07-04T21:32:06.916Z] Node Version:  v22.15.1
+[debug] [2025-07-04T21:32:06.917Z] Time:          Fri Jul 04 2025 22:32:06 GMT+0100 (British Summer Time)
+[debug] [2025-07-04T21:32:06.917Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-04T21:32:07.060Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-04T21:32:07.060Z] > authorizing via signed-in user (faranzafarcs@gmail.com)
+[debug] [2025-07-04T21:32:07.060Z] [iam] checking project gympartner-a30f8 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-07-04T21:32:07.061Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:07.061Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:07.062Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions [none]
+[debug] [2025-07-04T21:32:07.062Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions x-goog-quota-user=projects/gympartner-a30f8
+[debug] [2025-07-04T21:32:07.062Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-04T21:32:07.709Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions 200
+[debug] [2025-07-04T21:32:07.709Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-04T21:32:07.709Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:07.709Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:07.709Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-07-04T21:32:07.709Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-07-04T21:32:08.385Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2025-07-04T21:32:08.385Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2025-07-04T21:32:08.385Z] [functions] service account IAM check errored, deploy may fail: Request to https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account","status":404}
+[info] 
+[info] === Deploying to 'gympartner-a30f8'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-07-04T21:32:08.387Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:08.388Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:08.388Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 [none]
+[debug] [2025-07-04T21:32:08.572Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 200
+[debug] [2025-07-04T21:32:08.572Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 {"projectNumber":"459078683085","projectId":"gympartner-a30f8","lifecycleState":"ACTIVE","name":"GymPartner","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-07-03T22:52:04.481576Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-07-04T21:32:08.574Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:08.574Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:08.574Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig [none]
+[debug] [2025-07-04T21:32:08.884Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig 200
+[debug] [2025-07-04T21:32:08.884Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig {"projectId":"gympartner-a30f8","storageBucket":"gympartner-a30f8.firebasestorage.app"}
+[debug] [2025-07-04T21:32:08.884Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:08.884Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:08.884Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs [none]
+[debug] [2025-07-04T21:32:09.180Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs 200
+[debug] [2025-07-04T21:32:09.181Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs {}
+[debug] [2025-07-04T21:32:09.181Z] Customer code is not Node
+[debug] [2025-07-04T21:32:09.181Z] Validating python source
+[debug] [2025-07-04T21:32:09.181Z] Building python source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-07-04T21:32:09.182Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-04T21:32:09.187Z] Running command with virtualenv: command="D:\Projects\pumpcult\GymPartnerApp\functions\venv\Scripts\activate.bat", args=["","&&","python.exe","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2025-07-04T21:32:09.200Z] stderr: The system cannot find the path specified.
+
+[debug] [2025-07-04T21:32:09.250Z] Error: spawn "D:\Projects\pumpcult\GymPartnerApp\functions\venv\Scripts\activate.bat" ENOENT
+    at notFoundError (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-07-04T21:32:22.488Z] ----------------------------------------------------------------------
+[debug] [2025-07-04T21:32:22.490Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-07-04T21:32:22.490Z] CLI Version:   14.9.0
+[debug] [2025-07-04T21:32:22.491Z] Platform:      win32
+[debug] [2025-07-04T21:32:22.491Z] Node Version:  v22.15.1
+[debug] [2025-07-04T21:32:22.491Z] Time:          Fri Jul 04 2025 22:32:22 GMT+0100 (British Summer Time)
+[debug] [2025-07-04T21:32:22.491Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-04T21:32:22.639Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-04T21:32:22.639Z] > authorizing via signed-in user (faranzafarcs@gmail.com)
+[debug] [2025-07-04T21:32:22.640Z] [iam] checking project gympartner-a30f8 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-07-04T21:32:22.640Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:22.640Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:22.641Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions [none]
+[debug] [2025-07-04T21:32:22.641Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions x-goog-quota-user=projects/gympartner-a30f8
+[debug] [2025-07-04T21:32:22.641Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-04T21:32:23.269Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions 200
+[debug] [2025-07-04T21:32:23.269Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-04T21:32:23.270Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:23.270Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:23.270Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-07-04T21:32:23.270Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-07-04T21:32:23.933Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2025-07-04T21:32:23.933Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2025-07-04T21:32:23.933Z] [functions] service account IAM check errored, deploy may fail: Request to https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://iam.googleapis.com/v1/projects/gympartner-a30f8/serviceAccounts/gympartner-a30f8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account","status":404}
+[info] 
+[info] === Deploying to 'gympartner-a30f8'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-07-04T21:32:23.936Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:23.936Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:23.936Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 [none]
+[debug] [2025-07-04T21:32:24.113Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 200
+[debug] [2025-07-04T21:32:24.113Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/gympartner-a30f8 {"projectNumber":"459078683085","projectId":"gympartner-a30f8","lifecycleState":"ACTIVE","name":"GymPartner","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-07-03T22:52:04.481576Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-07-04T21:32:24.115Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:24.115Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:24.115Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig [none]
+[debug] [2025-07-04T21:32:24.369Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig 200
+[debug] [2025-07-04T21:32:24.369Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gympartner-a30f8/adminSdkConfig {"projectId":"gympartner-a30f8","storageBucket":"gympartner-a30f8.firebasestorage.app"}
+[debug] [2025-07-04T21:32:24.369Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:24.369Z] Checked if tokens are valid: true, expires at: 1751667246895
+[debug] [2025-07-04T21:32:24.370Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs [none]
+[debug] [2025-07-04T21:32:24.609Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs 200
+[debug] [2025-07-04T21:32:24.609Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/gympartner-a30f8/configs {}
+[debug] [2025-07-04T21:32:24.609Z] Customer code is not Node
+[debug] [2025-07-04T21:32:24.610Z] Validating python source
+[debug] [2025-07-04T21:32:24.610Z] Building python source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-07-04T21:32:24.610Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-04T21:32:24.615Z] Running command with virtualenv: command="D:\Projects\pumpcult\GymPartnerApp\functions\venv\Scripts\activate.bat", args=["","&&","python.exe","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2025-07-04T21:32:24.625Z] stderr: The system cannot find the path specified.
+
+[debug] [2025-07-04T21:32:24.671Z] Error: spawn "D:\Projects\pumpcult\GymPartnerApp\functions\venv\Scripts\activate.bat" ENOENT
+    at notFoundError (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\FZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+[error] 
+[error] Error: An unexpected error has occurred.
